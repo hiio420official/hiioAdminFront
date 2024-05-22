@@ -39,5 +39,16 @@ npm install --save react-router-dom
 -[x] SignIn path 추가
 -[x] SignOut path 추가
 -[x] notfound path 추가
- 
+-[x] storybook 설치
+```shell
+npx storybook@latest init
+```
+-[x] react-cookie 설치
+```shell
+ npm i --save react-cookie
+```
+-[x] axios 설치
+```shell
+ npm i --save axios
+```
  
