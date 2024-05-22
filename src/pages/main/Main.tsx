@@ -4,22 +4,29 @@ import {useCookies} from "react-cookie";
 import {useEffect, useState} from "react";
 
 export default function Main(){
-    const [cookies, setCookie, removeCookie] = useCookies(['a']);
-    const [GET] = useApi();
-    const [loading , setLoading] = useState(false);
-    useEffect(()=>{
-        GET();
-        setLoading(true);
-    },[]);
-    if(loading){
-        return <>asd</>
-    }
-    else{
-        return <></>
-    }
-
+    // const [cookies, setCookie, removeCookie] = useCookies(['a']);
+    // const [GET] = useApi();
+    // const [loading , setLoading] = useState(false);
+    // useEffect(()=>{
+    //     GET();
+    //     setLoading(true);
+    // },[]);
+    // if(loading){
+    //     return <>asd</>
+    // }
+    // else{
+    //     return <></>
+    // }
+    const [data,setData] = useState("")
+    return <div>
+        <input value={data} onChange={(e)=>{setData(e.target.value)}}/>
+        <Form/>
+    </div>
 }
-
+const Form = ()=>{
+    const [data,setDate] = useState("")
+    return <input value={data} onChange={e=>setDate(e.target.value)}/>
+}
 const useApi = ()=>{
     const navigate = useNavigate();
 
@@ -37,3 +44,5 @@ const useApi = ()=>{
     }
     return [GET];
 }
+
+axios.defaults.withCredentials = true;
