@@ -9,12 +9,16 @@
 -[ ] SignIn page 추가
 -[ ] SignOut page 추가
 -[ ] notfound Page 추가
--[ ] reset css -> Global Style 추가
+
 
 ## 작업 내역
 
 ---
 
+### 2024-05-23
+
+---
+-[x] reset css -> Global Style 추가
 
 ### 2024-05-22
 
