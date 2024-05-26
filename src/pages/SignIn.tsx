@@ -5,8 +5,7 @@ import axios from "axios";
 export default function SignIn(){
     const formRef = useRef(null);
     return <SMain>
-        <div>
-            <form ref={formRef} onSubmit={e=>{
+            <SFormSignIn ref={formRef} onSubmit={e=>{
                 e.preventDefault();
                 if(formRef&&formRef.current){
                     var formData = new FormData(formRef.current);
@@ -27,6 +26,10 @@ export default function SignIn(){
                 console.log(e)
             }}>
                 <div>
+                    <h1>Sign In</h1>
+                </div>
+                <div style={{textAlign:"center"}}>
+                    <label>ID</label>
                     <SInput type={"email"} name={"email"}  required={true} onInvalid ={e=>{
                         e.preventDefault();
                         console.log("invalid");
@@ -36,13 +39,13 @@ export default function SignIn(){
                     }}/>
                 </div>
                 <div>
+                    <label>PASSWORD</label>
                     <SInput type={'password'} name={"password"} />
                 </div>
                 <div>
                     <SInput type={'submit'}/>
                 </div>
-            </form>
-        </div>
+            </SFormSignIn>
     </SMain>
 }
 
@@ -51,6 +54,10 @@ const SMain = styled.main`
     justify-content: center;
     align-items: center;
     height: 100vh;
+`
+
+const SFormSignIn = styled.form`
+
 `
 
 const SInput = styled.input`
