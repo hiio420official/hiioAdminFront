@@ -1,8 +1,8 @@
 import React from 'react';
 import {GlobalStyle} from "./libs/styles/GlobalStyle";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Main from "./pages/main/Main";
 import MainLayout from "./libs/layouts/MainLayout";
+import SignIn from "./pages/SignIn";
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
                 <Route path={"/"} element={<div>s</div>}/>
             </Route>
             <Route path={"/signup"} element={<div>signup</div>}></Route>
-            <Route path={"/signin"} element={<div>asdasd</div>}></Route>
+            <Route path={"/signin"} element={<SignIn/>}></Route>
             <Route path={"/signout"} element={<div>asdasd</div>}></Route>
             <Route path={"*"} element={<div>notfound</div>}/>
         </Routes>
