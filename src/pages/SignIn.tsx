@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import {useRef} from "react";
-import axios from "axios";
+import {useCookies} from "react-cookie";
+import {AdminAPI} from "../libs/api/AdminAPI";
+
 
 export default function SignIn(){
     const formRef = useRef(null);
+    const [cookies] = useCookies()
     return <SMain>
             <SFormSignIn ref={formRef} onSubmit={e=>{
                 e.preventDefault();
@@ -15,9 +18,17 @@ export default function SignIn(){
                         console.log(pair[0] + ": " + pair[1]);
                         data[pair[0]] = pair[1] ;
                     }
-
-                    axios.post("http://localhost:8088/api/v1/user/insert",formData,{headers:{"Content-Type":"multipart/form-data"}}).then(resp=>console.log(resp.data));
-                    axios.post("http://localhost:8088/api/v1/user/insert",data,{headers:{"Content-Type":"application/json"}}).then(resp=>console.log(resp.data));
+                    console.log(data);
+                    formData.append("dto",new Blob([JSON.stringify(data)],{
+                        type: 'application/json'
+                    }));
+                    console.log(AdminAPI.defaults["baseURL"])
+                    //axios.post("http://localhost:8088/api/v1/user/insert",formData,{headers:{"Content-Type":"multipart/form-data"}}).then(resp=>console.log(resp.data)).catch(err=>console.log(err));
+                    AdminAPI.post("signin",data)
+                        .then(resp =>{
+                            console.log(resp);
+                            console.log(document.cookie)
+                        });
                 }
 
 
