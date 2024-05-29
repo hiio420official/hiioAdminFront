@@ -2,12 +2,13 @@ import styled from "styled-components";
 import {useRef} from "react";
 import {useCookies} from "react-cookie";
 import {AdminAPI} from "../libs/api/AdminAPI";
+import {SMainBase} from "../libs/styles/Main";
 
 
 export default function SignIn(){
     const formRef = useRef(null);
     const [cookies] = useCookies()
-    return <SMain>
+    return <SMainBase>
             <SFormSignIn ref={formRef} onSubmit={e=>{
                 e.preventDefault();
                 if(formRef&&formRef.current){
@@ -57,15 +58,10 @@ export default function SignIn(){
                     <SInput type={'submit'}/>
                 </div>
             </SFormSignIn>
-    </SMain>
+    </SMainBase>
 }
 
-const SMain = styled.main`
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-`
+
 
 const SFormSignIn = styled.form`
 
